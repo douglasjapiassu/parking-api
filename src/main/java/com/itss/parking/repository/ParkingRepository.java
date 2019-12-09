@@ -10,5 +10,5 @@ import com.itss.parking.entity.Parking;
 public interface ParkingRepository extends IGenericRepository<Parking, Long>{
 
 	List<Parking> findByVehicleIdAndExitDateIsNull(Long id);
-
+	
 }

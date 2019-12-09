@@ -5,11 +5,14 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.itss.parking.dto.ExitCalc;
 import com.itss.parking.entity.Parking;
 import com.itss.parking.service.ParkingService;
 
@@ -40,6 +43,11 @@ public class ParkingController extends GenericController<Parking, Long>{
 	@PostMapping(value = "/exit", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void exit(@Valid @RequestBody Parking p) {
 		parkingService.registerExit(p);
+	}
+	
+	@GetMapping(value = "/exit-calc/{parkingLotId}/{vehicleId}")
+	public ExitCalc exitCalc(@PathVariable Long parkingLotId, @PathVariable Long vehicleId) {
+		return parkingService.processExitCalc(parkingLotId, vehicleId);
 	}
 
 	

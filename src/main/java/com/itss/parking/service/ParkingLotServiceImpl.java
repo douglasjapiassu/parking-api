@@ -12,14 +12,17 @@ import com.itss.parking.repository.ParkingLotRepository;
 @Service("parkingLotService")
 public class ParkingLotServiceImpl extends GenericServiceImpl<ParkingLot, Long> implements ParkingLotService {
 	
+	ParkingLotRepository parkingLotRepository;
+	
 	@Autowired
 	public ParkingLotServiceImpl(ParkingLotRepository _repository) {
 		super(_repository);
+		this.parkingLotRepository = _repository;
 	}
 
 	@Override
 	public List<Dashboard> searchParkingLotsDashboard() {
-		return ((ParkingLotRepository)_repository).searchParkingLotsDashboard();
+		return parkingLotRepository.searchParkingLotsDashboard();
 	}
 
 }

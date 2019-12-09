@@ -11,7 +11,7 @@ import com.itss.parking.repository.IGenericRepository;
 @Transactional
 public class GenericServiceImpl<T, PK extends Serializable> implements GenericService<T, PK> {
 
-	protected IGenericRepository<T, PK> _repository;
+	private IGenericRepository<T, PK> _repository;
 
 	public GenericServiceImpl(IGenericRepository<T, PK> _repository) {
 		this._repository = _repository;

@@ -1,7 +1,7 @@
 package com.itss.parking.entity;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,11 +38,11 @@ public class Parking implements Serializable {
 	
 	@ApiModelProperty(value = "Parking entry date")
 	@Column
-	private Timestamp entryDate;
+	private LocalDateTime entryDate;
 	
 	@ApiModelProperty(value = "Parking exit date")
 	@Column
-	private Timestamp exitDate;
+	private LocalDateTime exitDate;
 
 	public Long getId() {
 		return this.id;
@@ -68,19 +68,19 @@ public class Parking implements Serializable {
 		this.parkingLot = parkingLot;
 	}
 
-	public Timestamp getEntryDate() {
+	public LocalDateTime getEntryDate() {
 		return entryDate;
 	}
 
-	public void setEntryDate(Timestamp entryDate) {
+	public void setEntryDate(LocalDateTime entryDate) {
 		this.entryDate = entryDate;
 	}
 
-	public Timestamp getExitDate() {
+	public LocalDateTime getExitDate() {
 		return exitDate;
 	}
 
-	public void setExitDate(Timestamp exitDate) {
+	public void setExitDate(LocalDateTime exitDate) {
 		this.exitDate = exitDate;
 	}
 	
